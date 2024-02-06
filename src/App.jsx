@@ -1,10 +1,11 @@
 import "./App.css";
+import AddNewNote from "./components/AddNewNote";
 function App() {
   return (
     <div className="container">
       <div className="note-header"></div>
       <div className="note-app">
-        <div className="add-new-note"></div>
+        <AddNewNote />
         <div className="note-container"></div>
       </div>
     </div>
