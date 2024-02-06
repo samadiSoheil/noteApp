@@ -14,7 +14,7 @@ function App() {
       <div className="note-header"></div>
       <div className="note-app">
         <AddNewNote onAddNote={handleAddNotes} />
-        <NoteList />
+        <NoteList notes={notes} />
       </div>
     </div>
   );
