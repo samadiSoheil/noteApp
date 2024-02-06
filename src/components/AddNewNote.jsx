@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-function AddNewNote() {
+function AddNewNote({ onAddNote }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [note, setNote] = useState([]);
 
   const handdleSubmit = (event) => {
     event.preventDefault();
+    if (!title || !description) return null;
+
     console.log("click shode!");
     const newNote = {
       title,
@@ -18,7 +19,7 @@ function AddNewNote() {
     console.log(newNote);
     setTitle("");
     setDescription("");
-    setNote((prevNote) => [...prevNote, newNote]);
+    onAddNote(newNote);
   };
 
   return (
