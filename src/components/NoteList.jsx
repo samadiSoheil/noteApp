@@ -1,6 +1,9 @@
+import NoteStatus from "./NoteStatus";
+
 function NoteList({ notes, onDeleteNote, onCompleteNote }) {
   return (
     <div className="note-container">
+      <NoteStatus notes={notes} />
       {notes.map((item) => (
         <NoteItem
           key={item.id}
