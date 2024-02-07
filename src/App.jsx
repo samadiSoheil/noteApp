@@ -20,13 +20,29 @@ function App() {
     );
   };
 
+  const [sortBy, setSortBy] = useState("latest");
+  const handleSort = (e) => {
+    setSortBy(e.target.value);
+  };
+  let sortedNotes = notes;
+  if (sortBy === "latest")
+    sortedNotes = [...notes].sort(
+      (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+    );
+  if (sortBy === "earliest")
+    sortedNotes = [...notes].sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  if (sortBy === "completed")
+    sortedNotes = [...notes].sort((a, b) => Number(b.completed) - Number(a.completed));
+
   return (
     <div className="container">
-      <NoteHeader notes={notes} />
+      <NoteHeader notes={notes} onSort={handleSort} sortBy={sortBy} />
       <div className="note-app">
         <AddNewNote onAddNote={handleAddNotes} />
         <NoteList
-          notes={notes}
+          notes={sortedNotes}
           onDeleteNote={handleDeleteNote}
           onCompleteNote={handleCompeleteNote}
         />
