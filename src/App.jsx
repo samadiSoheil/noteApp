@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import AddNewNote from "./components/AddNewNote";
 import NoteList from "./components/NoteList";
+import NoteHeader from "./components/NoteHeader";
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -21,7 +22,7 @@ function App() {
 
   return (
     <div className="container">
-      <div className="note-header"></div>
+      <NoteHeader />
       <div className="note-app">
         <AddNewNote onAddNote={handleAddNotes} />
         <NoteList
