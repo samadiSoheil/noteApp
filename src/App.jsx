@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="container">
-      <NoteHeader />
+      <NoteHeader notes={notes} />
       <div className="note-app">
         <AddNewNote onAddNote={handleAddNotes} />
         <NoteList
